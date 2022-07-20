@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 //IMPORT GLOBAL STYLING
 import '../../Assets/css/LoginForm.css';
 
@@ -23,6 +24,12 @@ function FormLogin() {
                 password: password
             });
             alert(result.data.message);
+            Swal.fire({
+                icon: 'success',
+                title: 'WELCOME',
+                text: 'HAVE FUN!',
+                confirmButtonColor: '#dc3545',
+            })
             localStorage.setItem('isAuthenticated', true);
             navigate('/home')
 
@@ -41,13 +48,13 @@ function FormLogin() {
                         <label htmlFor='username' className='form-label'>
                             Username
                         </label>
-                        <input id='username' type="text" name="username" className='form-input' placeholder='Enter your username' onChange={(e) => setUsername(e.target.value)} />
+                        <input id='username' type="text" name="username" className='form-input' placeholder='Enter your username' value={username} onChange={(e) => setUsername(e.target.value)} />
                     </div>
                     <div className='form-inputs'>
                         <label htmlFor='password' className='form-label'>
                             Password
                         </label>
-                        <input id='password' type="password" name="password" className='form-input' placeholder='Enter your password' onChange={(e) => setPassword(e.target.value)} />
+                        <input id='password' type="password" name="password" className='form-input' placeholder='Enter your password' value={password} onChange={(e) => setPassword(e.target.value)} />
                         <div className='forgot'><a href='/' className='forgot'>Forgot the password</a></div>
                     </div>
                     <button className='form-input-btn' type='submit'>Login</button>

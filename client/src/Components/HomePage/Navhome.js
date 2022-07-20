@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 //IMPORT LOGO IMAGES
 import NavbarLogo from '../../Assets/images/logoteamone.png';
 //IMPORT ICONS
@@ -13,6 +14,12 @@ function Navhome() {
     const handleLogout = async (e) => {
         e.preventDefault();
         localStorage.setItem('isAuthenticated', false);
+        Swal.fire({
+            icon: 'success',
+            title: 'LOG OUT',
+            text: 'LOG OUT SUCCESSFULLY',
+            confirmButtonColor: '#dc3545',
+        })
         navigate('/')
     }
 
