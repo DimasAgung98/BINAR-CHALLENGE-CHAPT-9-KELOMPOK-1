@@ -23,7 +23,6 @@ function HomePage() {
                 title: 'Notification',
                 text: 'Please Login First',
                 confirmButtonColor: '#dc3545',
-                iconColor: '#343a40'
             })
             navigate('/login')
         }
