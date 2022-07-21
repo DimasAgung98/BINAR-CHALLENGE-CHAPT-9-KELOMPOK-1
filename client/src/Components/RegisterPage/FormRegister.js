@@ -2,6 +2,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import Swal from 'sweetalert2';
 //IMPORT GLOBAL STYLING
 import '../../Assets/css/RegisterForm.css';
 
@@ -20,7 +21,16 @@ function FormRegister() {
                 username: username,
                 password: password
             });
-            alert(result.data.message);
+            // alert(result.data.message);
+            Swal.fire({
+                icon: 'success',
+                title: 'REGISTER SUCCESSFULLY',
+                text: 'PLEASE LOGIN!',
+                confirmButtonText: 'LOGIN NOW',
+                confirmButtonColor: '#dc3545',
+            }).then(function () {
+                window.location.href = '/login'
+            })
             localStorage.setItem('isAuthenticated', true);
         }
         catch (err) {
