@@ -23,7 +23,7 @@ function FormLogin() {
                 username: username,
                 password: password
             });
-            alert(result.data.message);
+            // alert(result.data.message);
             Swal.fire({
                 icon: 'success',
                 title: 'WELCOME',

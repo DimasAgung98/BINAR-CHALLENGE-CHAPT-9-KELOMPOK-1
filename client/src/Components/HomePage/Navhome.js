@@ -13,7 +13,7 @@ function Navhome() {
     const navigate = useNavigate();
     const handleLogout = async (e) => {
         e.preventDefault();
-        localStorage.setItem('isAuthenticated', false);
+        localStorage.clear('isAuthenticated');
         Swal.fire({
             icon: 'success',
             title: 'LOG OUT',
