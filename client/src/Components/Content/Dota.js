@@ -19,7 +19,7 @@ const Dota = () => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
 
         if (isAuthenticated) {
-            navigate('/home');
+            navigate('/game/dota');
         } else {
             Swal.fire({
                 icon: 'info',

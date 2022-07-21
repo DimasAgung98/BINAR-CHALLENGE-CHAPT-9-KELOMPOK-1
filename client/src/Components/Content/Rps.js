@@ -18,7 +18,7 @@ function Rps() {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
 
         if (isAuthenticated) {
-            navigate('/home');
+            navigate('/game/rock-paper-scissors');
         } else {
             Swal.fire({
                 icon: 'info',

@@ -18,7 +18,7 @@ const Fallguys = () => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
 
         if (isAuthenticated) {
-            navigate('/home');
+            navigate('/game/fall-guys');
         } else {
             Swal.fire({
                 icon: 'info',

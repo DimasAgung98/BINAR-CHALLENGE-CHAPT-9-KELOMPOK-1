@@ -18,7 +18,7 @@ const Watchdogs = () => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
 
         if (isAuthenticated) {
-            navigate('/home');
+            navigate('/game/watch-dogs');
         } else {
             Swal.fire({
                 icon: 'info',

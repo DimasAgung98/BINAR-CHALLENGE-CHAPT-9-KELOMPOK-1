@@ -19,7 +19,7 @@ const Gta = () => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
 
         if (isAuthenticated) {
-            navigate('/home');
+            navigate('/game/gta');
         } else {
             Swal.fire({
                 icon: 'info',

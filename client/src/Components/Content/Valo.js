@@ -18,7 +18,7 @@ const Valo = () => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
 
         if (isAuthenticated) {
-            navigate('/home');
+            navigate('/game/valorant');
         } else {
             Swal.fire({
                 icon: 'info',

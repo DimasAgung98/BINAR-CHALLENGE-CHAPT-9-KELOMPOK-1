@@ -18,7 +18,7 @@ const Cyberpunk = () => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
 
         if (isAuthenticated) {
-            navigate('/home');
+            navigate('/game/cyber-punk');
         } else {
             Swal.fire({
                 icon: 'info',
