@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 import Dot from '../../Assets/images/dota.jpg';
 import { Button } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
@@ -12,6 +14,22 @@ import '../../Assets/css/Content.css';
 
 
 const Dota = () => {
+    const navigate = useNavigate();
+    useEffect(() => {
+        const isAuthenticated = localStorage.getItem('isAuthenticated');
+
+        if (isAuthenticated) {
+            navigate('/home');
+        } else {
+            Swal.fire({
+                icon: 'info',
+                title: 'Notification',
+                text: 'Please Login First',
+                confirmButtonColor: '#dc3545',
+            })
+            navigate('/login')
+        }
+    }, [])
     return (
         <>
             <Navhome />
