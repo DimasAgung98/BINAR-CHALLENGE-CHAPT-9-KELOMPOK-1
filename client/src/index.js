@@ -18,6 +18,7 @@ import ValoPage from "./Components/Content/Valo";
 import CyberPage from "./Components/Content/Cyberpunk";
 import WatchDogPage from "./Components/Content/Watchdogs";
 import FallguysPage from "./Components/Content/Fallguys";
+import RpsPage from "./Components/Content/Rps";
 //IMPORT BOOTSTRAP
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -39,6 +40,7 @@ root.render(
       <Route path="/game/cyber-punk" element={<CyberPage />} />
       <Route path="/game/fall-guys" element={<FallguysPage />} />
       <Route path="/game/watch-dogs" element={<WatchDogPage />} />
+      <Route path="/game/rock-paper-scissors" element={<RpsPage />} />
     </Routes>
   </BrowserRouter>
 );

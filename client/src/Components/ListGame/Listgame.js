@@ -10,8 +10,8 @@ import Val from '../../Assets/images/valo.jpg';
 import Dot from '../../Assets/images/dota.jpg';
 import Fall from '../../Assets/images/fall.jpg';
 import Cs from '../../Assets/images/cs.jpg';
-import witch from '../../Assets/images/witch.jpg'
-import apex from '../../Assets/images/apex.jpg'
+import Rps from '../../Assets/images/rps.png';
+import apex from '../../Assets/images/apex.jpg';
 
 
 function Listgame() {
@@ -51,7 +51,7 @@ function Listgame() {
                         <img src={Cs} class="img-fluid" alt="game" />
                     </div>
                     <div className='col-lg-4'>
-                        <img src={witch} class="img-fluid" alt="game" />
+                        <img src={Rps} class="img-fluid" alt="game" />
                     </div>
                     <div className='col-lg-4'>
                         <img src={apex} class="img-fluid" alt="game" />

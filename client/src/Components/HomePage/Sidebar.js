@@ -9,6 +9,7 @@ function Sidebar() {
                 <div className='row'>
                     <div className='col-12 list-menu'>
                         <NavLink to='/home'><li>HOME</li></NavLink>
+                        <NavLink to='/game/rock-paper-scissors'><li>RPS</li></NavLink>
                         <NavLink to='/game/gta'><li>GTA V</li></NavLink>
                         <NavLink to='/game/fall-guys'><li>FALLGUYS</li></NavLink>
                         <NavLink to='/game/dota'><li>DOTA 2</li></NavLink>
