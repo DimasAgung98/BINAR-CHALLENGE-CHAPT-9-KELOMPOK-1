@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 //IMPORT COMPONENT
-import { Button } from 'reactstrap'
+import { Button } from 'reactstrap';
+import { Modal } from 'react-bootstrap';
 import ProfileAchievement from './ProfileAchievement';
 //IMPORT ICONS
 import { FaInstagram, FaTwitter, FaTiktok, FaFacebook } from 'react-icons/fa'
@@ -9,6 +10,10 @@ import PP from '../../Assets/images/pp.jpg';
 import '../../Assets/css/Profile.css'
 
 function Profile() {
+    const [show, setShow] = useState();
+    const handleModal = () => setShow(true);
+    const closeModal = () => setShow(false);
+
     return (
         <>
             <div className='container-fluid bg-light min-vh-100'>
@@ -34,7 +39,7 @@ function Profile() {
                                     <h1>USER PROFILE</h1>
                                 </div>
                                 <div className='col text-end'>
-                                    <Button color='danger' outline>Edit profile</Button>
+                                    <Button onClick={handleModal} color='danger' outline>Edit profile</Button>
                                 </div>
                             </div>
                             <table class="table table-bordered">
@@ -72,6 +77,35 @@ function Profile() {
                     </div>
                 </div>
             </div>
+            <Modal show={show} onHide={closeModal}>
+                <Modal.Header>
+                    <b>EDIT DATA</b>
+                </Modal.Header>
+                <Modal.Body>
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label text-black">Name</label>
+                            <input type="text" class="form-control" id="name" aria-describedby="name" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-black">Username</label>
+                            <input type="text" class="form-control" id="username" aria-describedby="username" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-black">Email</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-black">Social Media URL</label>
+                            <input type="text" class="form-control" id="username" aria-describedby="username" />
+                        </div>
+                    </form>
+                </Modal.Body>
+                <Modal.Footer className='center'>
+                    <Button type="submit" className="btn btn-danger">Submit</Button>
+                    <Button className='buttonSumbit btn-dark btn-modal' onClick={closeModal}>Close</Button>
+                </Modal.Footer>
+            </Modal>
         </>
     )
 }
