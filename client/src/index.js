@@ -29,18 +29,18 @@ root.render(
       <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
-      <Route path="/home" element={<HomePage />} />
       <Route path="/support" element={<SupportPage />} />
-      <Route path="/home/profile" element={<ProfilePage />} />
       <Route path="/list-game" element={<Listgame />} />
       <Route path="/leaderboard" element={<Leaderboard />} />
-      <Route path="/game/dota" element={<DotaPage />} />
-      <Route path="/game/gta" element={<GtaPage />} />
-      <Route path="/game/valorant" element={<ValoPage />} />
-      <Route path="/game/cyber-punk" element={<CyberPage />} />
-      <Route path="/game/fall-guys" element={<FallguysPage />} />
-      <Route path="/game/watch-dogs" element={<WatchDogPage />} />
-      <Route path="/game/rock-paper-scissors" element={<RpsPage />} />
+      <Route path="/home" element={<HomePage />} />
+      <Route path="/home/profile" element={<ProfilePage />} />
+      <Route path="/home/game/dota" element={<DotaPage />} />
+      <Route path="/home/game/gta" element={<GtaPage />} />
+      <Route path="/home/game/valorant" element={<ValoPage />} />
+      <Route path="/home/game/cyber-punk" element={<CyberPage />} />
+      <Route path="/home/game/fall-guys" element={<FallguysPage />} />
+      <Route path="/home/game/watch-dogs" element={<WatchDogPage />} />
+      <Route path="/home/game/rock-paper-scissors" element={<RpsPage />} />
     </Routes>
   </BrowserRouter>
 );
