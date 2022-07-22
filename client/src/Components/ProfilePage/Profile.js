@@ -34,10 +34,10 @@ function Profile() {
     }, [photo])
 
 
-
     function handleUploadChange(e) {
         console.log(e.target.files[0]);
         let uploaded = e.target.files[0];
+        setPhoto(e.target.files[0]);
         setImage(URL.createObjectURL(uploaded));
         setSaveImage(uploaded);
     }
@@ -72,7 +72,9 @@ function Profile() {
                 <div className='row bg-light '>
                     <div className='col-3 pt-5 px-5'>
                         <div className='card pp-section bg-light'>
-                            <img className='profile-pict mb-3' src={saveImage} alt="profile" />
+                            <img className='profile-pict mb-3' src={preview} alt="profile" />
+                        </div>
+                        <div className='row pt-3'>
                             <Button onClick={openModalPicture} className='btn-change-profile' color='danger'>Change Profile Picture</Button>
                         </div>
                         <div className='row'>
