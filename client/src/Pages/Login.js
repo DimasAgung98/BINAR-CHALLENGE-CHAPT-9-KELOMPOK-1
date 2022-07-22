@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 //IMPORT COMPONENTS
 import Navbar from '../Components/Global/Navbar';
 import FormLogin from '../Components/LoginPage/FormLogin';
@@ -9,6 +9,9 @@ import BG from '../Assets/images/BGIF.gif';
 import '../Assets/css/LoginForm.css';
 
 function Login() {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <>
             <Navbar />

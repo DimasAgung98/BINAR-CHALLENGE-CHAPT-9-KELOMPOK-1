@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 //IMPORT COMPONENTS
 import Navbar from '../Components/Global/Navbar';
 import FormRegister from '../Components/RegisterPage/FormRegister';
@@ -9,6 +9,9 @@ import BG from '../Assets/images/BGIF.gif';
 import '../Assets/css/RegisterForm.css';
 
 function Register() {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <>
             <Navbar />

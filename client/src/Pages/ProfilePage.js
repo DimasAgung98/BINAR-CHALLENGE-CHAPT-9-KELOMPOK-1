@@ -10,6 +10,7 @@ function ProfilePage() {
     const navigate = useNavigate();
     useEffect(() => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
+        window.scrollTo(0, 0)
 
         if (isAuthenticated) {
             navigate('/home');
