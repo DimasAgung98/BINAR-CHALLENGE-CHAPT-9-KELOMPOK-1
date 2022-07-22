@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-// import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 //IMPORT COMPONENT
 import { Button } from 'reactstrap';
 import { Modal } from 'react-bootstrap';
@@ -8,7 +8,6 @@ import Swal from 'sweetalert2';
 //IMPORT ICONS
 import { FaInstagram, FaTwitter, FaTiktok, FaFacebook } from 'react-icons/fa'
 //IMPORT ASSETS
-import PP from '../../Assets/images/pp.jpg';
 import '../../Assets/css/Profile.css'
 
 function Profile() {
@@ -16,10 +15,25 @@ function Profile() {
     const [picture, setShowPicture] = useState();
     const [image, setImage] = useState("https://fakeimg.pl/350x200/?text=Upload Image");
     const [saveImage, setSaveImage] = useState(null);
+    const [photo, setPhoto] = useState(null);
+    const [preview, setPreview] = useState();
     const handleModal = () => setShow(true);
     const closeModal = () => setShow(false);
     const openModalPicture = () => setShowPicture(true);
     const closeModalPicture = () => setShowPicture(false);
+
+    useEffect(() => {
+        if (!photo) {
+            setPreview(undefined)
+            return
+        }
+        const objectUrl = URL.createObjectURL(photo)
+        setPreview(objectUrl)
+
+        return () => URL.revokeObjectURL(objectUrl)
+    }, [photo])
+
+
 
     function handleUploadChange(e) {
         console.log(e.target.files[0]);
@@ -28,10 +42,11 @@ function Profile() {
         setSaveImage(uploaded);
     }
 
+    //MENAMBAHKAN DATA KE FORM
     let formData = new FormData();
     formData.append('photo', saveImage);
 
-    function uploadedImage() {
+    function uploadedImage(e) {
         if (!saveImage) {
             Swal.fire({
                 icon: 'warning',
@@ -39,6 +54,15 @@ function Profile() {
                 text: 'CHOOSE YOUR PROFILE PICTURE FIRST',
                 confirmButtonColor: '#dc3545',
             })
+        } else {
+            const result = axios.post('http://localhost:4000/upload', formData)
+            Swal.fire({
+                icon: 'success',
+                title: 'SUCCESS',
+                text: 'IMAGE UPLOADED',
+                confirmButtonColor: '#dc3545',
+            })
+            closeModalPicture();
         }
     }
 
@@ -48,7 +72,7 @@ function Profile() {
                 <div className='row bg-light '>
                     <div className='col-3 pt-5 px-5'>
                         <div className='card pp-section bg-light'>
-                            <img className='profile-pict mb-3' src={PP} alt="profile" />
+                            <img className='profile-pict mb-3' src={saveImage} alt="profile" />
                             <Button onClick={openModalPicture} className='btn-change-profile' color='danger'>Change Profile Picture</Button>
                         </div>
                         <div className='row'>
@@ -144,7 +168,7 @@ function Profile() {
                         </div>
                         <div className='pt-3'>
                             <label htmlFor='formFile' className='form-label text-black'>Upload Image Here</label>
-                            <input type='file' className='form-control' id='formFile' onChange={handleUploadChange} accept='image/*' />
+                            <input type='file' className='form-control' id='formFile' name='photo' onChange={handleUploadChange} accept='image/*' />
                         </div>
                     </div>
                 </Modal.Body>
