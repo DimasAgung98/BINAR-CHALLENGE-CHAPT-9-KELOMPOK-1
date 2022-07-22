@@ -2,13 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const cors = require('cors');
+const path = require('path');
 const { triggerAsyncId } = require('async_hooks');
 const app = express();
 const PORT = 4000;
 
 //middleware untuk bodyparser
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(express.static(path.join(__dirname, '/public/upload')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //PENGATURAN STORAGE UNTUK MULTER
 const myStorage = multer.diskStorage({
@@ -23,6 +24,7 @@ const upload = multer({ storage: myStorage });
 
 //menerapkan cors
 app.use(express.json());
+app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
@@ -31,13 +33,15 @@ app.get('/', (req, res) => {
 
 //MULTER UPLOAD IMAGE
 app.post('/upload', upload.single('photo'), (req, res) => {
+    let imageURL = req.protocol + '://' + req.get('host') + '/uploads/' + req.file.filename;
     console.log(req.file);
     console.log(req.body);
     res.status(200).json({
         message: 'Upload success',
         data: {
             name: req.body.name,
-            image: req.file.path
+            image: imageURL,
+            path: req.file.path
         }
     });
 });
