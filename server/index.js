@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 })
 
 //MULTER UPLOAD IMAGE
-app.post('/home/profile', upload.single('photo'), (req, res) => {
+app.post('/upload', upload.single('photo'), (req, res) => {
     console.log(req.file);
     console.log(req.body);
     res.status(200).json({
