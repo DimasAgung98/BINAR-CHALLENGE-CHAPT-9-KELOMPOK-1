@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+// import axios from 'axios';
 //IMPORT COMPONENT
 import { Button } from 'reactstrap';
 import { Modal } from 'react-bootstrap';
 import ProfileAchievement from './ProfileAchievement';
+import Swal from 'sweetalert2';
 //IMPORT ICONS
 import { FaInstagram, FaTwitter, FaTiktok, FaFacebook } from 'react-icons/fa'
 //IMPORT ASSETS
@@ -24,6 +26,20 @@ function Profile() {
         let uploaded = e.target.files[0];
         setImage(URL.createObjectURL(uploaded));
         setSaveImage(uploaded);
+    }
+
+    let formData = new FormData();
+    formData.append('photo', saveImage);
+
+    function uploadedImage() {
+        if (!saveImage) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'ALERT',
+                text: 'CHOOSE YOUR PROFILE PICTURE FIRST',
+                confirmButtonColor: '#dc3545',
+            })
+        }
     }
 
     return (
@@ -133,7 +149,7 @@ function Profile() {
                     </div>
                 </Modal.Body>
                 <Modal.Footer className='center'>
-                    <Button type="submit" className="btn btn-danger">Submit</Button>
+                    <Button onClick={uploadedImage} type="submit" className="btn btn-danger">Submit</Button>
                     <Button className='buttonSumbit btn-dark btn-modal' onClick={closeModalPicture}>Close</Button>
                 </Modal.Footer>
             </Modal>
