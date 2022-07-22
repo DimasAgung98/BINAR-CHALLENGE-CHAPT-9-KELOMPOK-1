@@ -7,22 +7,22 @@ import Profile from '../Components/ProfilePage/Profile';
 import Footer from "../Components/Global/Footer";
 
 function ProfilePage() {
-    // const navigate = useNavigate();
-    // useEffect(() => {
-    //     const isAuthenticated = localStorage.getItem('isAuthenticated');
+    const navigate = useNavigate();
+    useEffect(() => {
+        const isAuthenticated = localStorage.getItem('isAuthenticated');
 
-    //     if (isAuthenticated) {
-    //         navigate('/home');
-    //     } else {
-    //         Swal.fire({
-    //             icon: 'info',
-    //             title: 'Notification',
-    //             text: 'Please Login First',
-    //             confirmButtonColor: '#dc3545',
-    //         })
-    //         navigate('/login')
-    //     }
-    // }, [])
+        if (isAuthenticated) {
+            navigate('/home');
+        } else {
+            Swal.fire({
+                icon: 'info',
+                title: 'Notification',
+                text: 'Please Login First',
+                confirmButtonColor: '#dc3545',
+            })
+            navigate('/login')
+        }
+    }, [])
     return (
         <>
             <Navhome />
