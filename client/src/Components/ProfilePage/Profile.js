@@ -11,8 +11,20 @@ import '../../Assets/css/Profile.css'
 
 function Profile() {
     const [show, setShow] = useState();
+    const [picture, setShowPicture] = useState();
+    const [image, setImage] = useState("https://fakeimg.pl/350x200/?text=Upload Image");
+    const [saveImage, setSaveImage] = useState(null);
     const handleModal = () => setShow(true);
     const closeModal = () => setShow(false);
+    const openModalPicture = () => setShowPicture(true);
+    const closeModalPicture = () => setShowPicture(false);
+
+    function handleUploadChange(e) {
+        console.log(e.target.files[0]);
+        let uploaded = e.target.files[0];
+        setImage(URL.createObjectURL(uploaded));
+        setSaveImage(uploaded);
+    }
 
     return (
         <>
@@ -21,7 +33,7 @@ function Profile() {
                     <div className='col-3 pt-5 px-5'>
                         <div className='card pp-section bg-light'>
                             <img className='profile-pict mb-3' src={PP} alt="profile" />
-                            <Button className='btn-change-profile' color='danger'>Change Profile Picture</Button>
+                            <Button onClick={openModalPicture} className='btn-change-profile' color='danger'>Change Profile Picture</Button>
                         </div>
                         <div className='row'>
                             <ul className='profile-socials'>
@@ -102,6 +114,27 @@ function Profile() {
                 <Modal.Footer className='center'>
                     <Button type="submit" className="btn btn-danger">Submit</Button>
                     <Button className='buttonSumbit btn-dark btn-modal' onClick={closeModal}>Close</Button>
+                </Modal.Footer>
+            </Modal>
+
+            <Modal show={picture} onHide={closeModal}>
+                <Modal.Header>
+                    <b>EDIT PROFILE IMAGE</b>
+                </Modal.Header>
+                <Modal.Body>
+                    <div>
+                        <div className='text-center'>
+                            <img src={image} className='img-thumbnail' alt='profileimage' />
+                        </div>
+                        <div className='pt-3'>
+                            <label htmlFor='formFile' className='form-label text-black'>Upload Image Here</label>
+                            <input type='file' className='form-control' id='formFile' onChange={handleUploadChange} accept='image/*' />
+                        </div>
+                    </div>
+                </Modal.Body>
+                <Modal.Footer className='center'>
+                    <Button type="submit" className="btn btn-danger">Submit</Button>
+                    <Button className='buttonSumbit btn-dark btn-modal' onClick={closeModalPicture}>Close</Button>
                 </Modal.Footer>
             </Modal>
         </>
