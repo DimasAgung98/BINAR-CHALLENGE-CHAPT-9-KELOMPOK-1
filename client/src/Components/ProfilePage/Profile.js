@@ -42,34 +42,28 @@ function Profile() {
                                     <Button onClick={handleModal} color='danger' outline>Edit profile</Button>
                                 </div>
                             </div>
-                            <table class="table table-bordered">
-                                <tbody>
-                                    <tr>
-                                        <td>Name</td>
-                                        <td>Dimas Agung</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Username</td>
-                                        <td>Dimasagungw</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email</td>
-                                        <td>Dimas@gmail.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Password</td>
-                                        <td>*********</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Social Media URL</td>
-                                        <td><a href='https://www.instagram.com/'>www.instagram.com/akudimas</a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="mb-3">
-                                <label className='my-1 text-warning'>About me</label>
-                                <textarea class="form-control form-sizing" id="exampleFormControlTextarea1" rows="3">Halo nama saya dimas saya senang berteman dengan siapa saja, ayo bermain bersama dan have fun didalam game</textarea>
-                            </div>
+                            <form>
+                                <div class="mb-3">
+                                    <label class="form-label text-black">Name</label>
+                                    <input type="text" class="form-control" id="name" aria-describedby="name" />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label text-black">Username</label>
+                                    <input type="text" class="form-control" id="username" aria-describedby="username" />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label text-black">Email</label>
+                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label text-black">Social Media URL</label>
+                                    <input type="text" class="form-control" id="username" aria-describedby="username" />
+                                </div>
+                                <div class="mb-3">
+                                    <label className='form-label text-black'>About Me</label>
+                                    <textarea class="form-control form-sizing" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
+                            </form>
                             <div className='row'>
                                 <ProfileAchievement />
                             </div>
@@ -98,6 +92,10 @@ function Profile() {
                         <div class="mb-3">
                             <label class="form-label text-black">Social Media URL</label>
                             <input type="text" class="form-control" id="username" aria-describedby="username" />
+                        </div>
+                        <div class="mb-3">
+                            <label className='form-label text-black'>About Me</label>
+                            <textarea class="form-control form-sizing" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
                     </form>
                 </Modal.Body>
