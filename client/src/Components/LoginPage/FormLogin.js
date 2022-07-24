@@ -23,15 +23,34 @@ function FormLogin() {
                 username: username,
                 password: password
             });
-            // alert(result.data.message);
+
+        if(result.data.message === "wrong username"){
             Swal.fire({
-                icon: 'success',
-                title: 'WELCOME',
-                text: 'HAVE FUN!',
+                icon: 'error',
+                title: 'FAILED',
+                text: 'Wrong Username',
                 confirmButtonColor: '#dc3545',
             })
-            localStorage.setItem('isAuthenticated', true);
-            navigate('/home')
+        } else {
+                if(result.data.message === "wrong password"){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'FAILED',
+                        text: 'Wrong Password',
+                        confirmButtonColor: '#dc3545',
+                    })
+                }
+                else{
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'WELCOME',
+                        text: 'Login Success!',
+                        confirmButtonColor: '#dc3545',
+                    })
+                    localStorage.setItem('isAuthenticated', true);
+                    navigate('/home')
+                }
+        }
 
         }
         catch (err) {
