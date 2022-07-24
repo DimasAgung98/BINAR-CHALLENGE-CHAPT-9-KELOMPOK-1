@@ -31,7 +31,6 @@ function FormRegister() {
             }).then(function () {
                 window.location.href = '/login'
             })
-            localStorage.setItem('isAuthenticated', true);
         }
         catch (err) {
             alert(err.toString());

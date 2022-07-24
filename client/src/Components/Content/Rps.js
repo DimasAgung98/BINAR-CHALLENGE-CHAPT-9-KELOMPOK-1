@@ -39,7 +39,7 @@ function Rps() {
                         <h1 className='text-game-title'>ROCK PAPER SCISSORS</h1>
                         <p>A classic two-person game. Players start each round by saying, “rock, paper, scissors, shoot!” On “shoot,” each player holds out their fist for rock, flat hand for paper, or their index and middle finger for scissors. Rock crushes scissors, scissors cut paper, and paper covers rock. See who wins each round!</p>
                         <div>
-                            <NavLink to='/home/game/play/rock-paper-scissors'><Button color="warning" outline size="md">
+                            <NavLink to='/play/rock-paper-scissors'><Button color="warning" outline size="md">
                                 PLAY NOW
                             </Button></NavLink>
                         </div>

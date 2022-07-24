@@ -13,7 +13,7 @@ function ProfilePage() {
         window.scrollTo(0, 0)
 
         if (isAuthenticated) {
-            navigate('/home');
+            navigate('/home/profile');
         } else {
             Swal.fire({
                 icon: 'info',

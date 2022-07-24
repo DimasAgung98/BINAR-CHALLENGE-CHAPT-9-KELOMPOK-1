@@ -1,54 +1,33 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const multer = require('multer');
+// import express
+const express = require("express");
+// import cors
 const cors = require('cors');
-const path = require('path');
-const { triggerAsyncId } = require('async_hooks');
-const app = express();
-const PORT = 4000;
 
+// setting express
+const app = express();
+
+//import bodyparser
+const bodyParser = require('body-parser');
+const path = require('path');
+
+// port config
+const port = process.env.PORT || 4000;
+
+// import routing
+const router = require("./router");
+
+// middlewares 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+// implement cors
+app.use(cors());
+//bodyparser
+app.use(bodyParser.json());
 //middleware untuk bodyparser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-//PENGATURAN STORAGE UNTUK MULTER
-const myStorage = multer.diskStorage({
-    destination: './public/uploads',
-    filename: (req, file, callback) => {
-        callback(null, file.originalname); // upload dengan nama asli
-    }
-});
+app.use(router);
 
-// middleware untuk upload dengan multer
-const upload = multer({ storage: myStorage });
-
-//menerapkan cors
-app.use(express.json());
-app.use(bodyParser.json());
-app.use(cors());
-
-app.get('/', (req, res) => {
-    res.send('hello world')
-})
-
-//MULTER UPLOAD IMAGE
-app.post('/upload', upload.single('photo'), (req, res) => {
-    let imageURL = req.protocol + '://' + req.get('host') + '/uploads/' + req.file.filename;
-    console.log(req.file);
-    console.log(req.body);
-    res.status(200).json({
-        message: 'Upload success',
-        data: {
-            name: req.body.name,
-            image: imageURL,
-            path: req.file.path
-        }
-    });
-});
-
-
-//APP LISTEN
-app.listen(PORT, (err) => {
-    if (err) throw err;
-    console.log('App is running on port' + PORT);
-})
+app.listen(port, () => console.log(`Server menyala pada port ${port}, url: http://localhost:${port}`));

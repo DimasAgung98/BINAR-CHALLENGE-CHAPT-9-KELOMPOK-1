@@ -87,7 +87,7 @@ const Valo = () => {
                 </div>
                 <div className='row bg-light'>
                     <div className='text-center mt-2 mb-5'>
-                        <NavLink to='.#'><Button className='btn-list btn-all-game'>SEE ALL GAME ACHIEVEMENT</Button></NavLink>
+                        <NavLink to='#'><Button className='btn-list btn-all-game'>SEE ALL GAME ACHIEVEMENT</Button></NavLink>
                     </div>
                 </div>
                 <div className='row pt-4 pb-5'>
