@@ -45,19 +45,19 @@ function FormRegister() {
                         <label htmlFor='email' className='form-label'>
                             Email
                         </label>
-                        <input id='email' type="email" name="email" className='form-input' placeholder='Enter your email' onChange={(e) => setEmail(e.target.value)} />
+                        <input id='email' type="email" required name="email" className='form-input' placeholder='Enter your email' onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div className='form-inputs'>
                         <label htmlFor='username' className='form-label'>
                             Username
                         </label>
-                        <input id='username' type="text" name="username" className='form-input' placeholder='Enter your username' onChange={(e) => setUsername(e.target.value)} />
+                        <input id='username' type="text" required name="username" className='form-input' placeholder='Enter your username' onChange={(e) => setUsername(e.target.value)} />
                     </div>
                     <div className='form-inputs'>
                         <label htmlFor='password' className='form-label'>
                             Password
                         </label>
-                        <input id='password' type="password" name="password" className='form-input' placeholder='Enter your password' onChange={(e) => setPassword(e.target.value)} />
+                        <input id='password' type="password" required name="password" className='form-input' placeholder='Enter your password' onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <button className='form-input-btn' type='submit'>Submit</button>
                     <p className='form-input-login'>Already have an account? Login <NavLink to='/login'>here</NavLink></p>
