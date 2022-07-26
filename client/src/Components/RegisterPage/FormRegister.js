@@ -33,7 +33,21 @@ function FormRegister() {
             })
         }
         catch (err) {
-            alert(err.toString());
+            if (err.response.status === 400) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'REGISTER FAILED',
+                    text: 'USERNAME ALREADY USED!',
+                    confirmButtonColor: '#dc3545',
+                })
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'REGISTER FAILED',
+                    text: 'SYSTEM ERROR!',
+                    confirmButtonColor: '#dc3545',
+                })
+            }
         }
     }
     return (
