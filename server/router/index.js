@@ -17,11 +17,15 @@ const home = require('../controllers/home');
 const register = require('../controllers/register');
 const login = require('../controllers/login');
 const uploadPicture = require('../controllers/upload');
+const forgotPassword = require('../controllers/forgot');
 
 router.get("/", home.index);
 router.post("/register", register);
 router.post('/login', login);
 router.post('/upload', upload.single('photo'), uploadPicture);
+
+//FORGOT PASSWORD
+router.put('/forgot-password', forgotPassword)
 
 
 module.exports = router;
