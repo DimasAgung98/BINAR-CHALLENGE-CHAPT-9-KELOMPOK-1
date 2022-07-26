@@ -20,6 +20,7 @@ import WatchDogPage from "./Components/Content/Watchdogs";
 import FallguysPage from "./Components/Content/Fallguys";
 import RpsPage from "./Components/Content/Rps";
 import PlayRps from "./Pages/gamepages/Rps";
+import ForgotPassword from "./Components/LoginPage/ForgotPassword";
 //IMPORT BOOTSTRAP
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -43,6 +44,7 @@ root.render(
       <Route path="/game/watch-dogs" element={<WatchDogPage />} />
       <Route path="/game/rock-paper-scissors" element={<RpsPage />} />
       <Route path="/play/rock-paper-scissors" element={<PlayRps />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
     </Routes>
   </BrowserRouter>
 );

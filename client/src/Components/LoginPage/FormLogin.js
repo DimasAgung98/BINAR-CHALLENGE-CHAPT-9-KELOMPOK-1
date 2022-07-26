@@ -24,15 +24,15 @@ function FormLogin() {
                 password: password
             });
 
-        if(result.data.message === "wrong username"){
-            Swal.fire({
-                icon: 'error',
-                title: 'FAILED',
-                text: 'Wrong Username',
-                confirmButtonColor: '#dc3545',
-            })
-        } else {
-                if(result.data.message === "wrong password"){
+            if (result.data.message === "wrong username") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'FAILED',
+                    text: 'Wrong Username',
+                    confirmButtonColor: '#dc3545',
+                })
+            } else {
+                if (result.data.message === "wrong password") {
                     Swal.fire({
                         icon: 'error',
                         title: 'FAILED',
@@ -40,7 +40,7 @@ function FormLogin() {
                         confirmButtonColor: '#dc3545',
                     })
                 }
-                else{
+                else {
                     Swal.fire({
                         icon: 'success',
                         title: 'WELCOME',
@@ -50,7 +50,7 @@ function FormLogin() {
                     localStorage.setItem('isAuthenticated', true);
                     navigate('/home')
                 }
-        }
+            }
 
         }
         catch (err) {
@@ -74,7 +74,7 @@ function FormLogin() {
                             Password
                         </label>
                         <input id='password' type="password" name="password" className='form-input' placeholder='Enter your password' value={password} onChange={(e) => setPassword(e.target.value)} />
-                        <div className='forgot'><a href='/' className='forgot'>Forgot the password</a></div>
+                        <div className='forgot'><NavLink to='/forgot-password' className='forgot'>Forgot the password</NavLink></div>
                     </div>
                     <button className='form-input-btn' type='submit'>Login</button>
                     <p className='form-input-login'>Dont have an account? Register <NavLink to='/register'>here</NavLink></p>
