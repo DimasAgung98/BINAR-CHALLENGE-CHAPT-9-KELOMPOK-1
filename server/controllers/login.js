@@ -62,8 +62,18 @@ const loginPost = async (req, res) => {
         // return res.json({message: "wrong password",})
         return res.json({ message: "wrong password", }).status(400)
     }
+    const tokenPayload = {
+        id: userData.id,
+        username: userData.username,
+        email: userData.email
+    }
+    const token = jwt.sign(tokenPayload, jwtConfig.JWT_SECRET);
 
-    return res.json({ message: "login success", }).status(200) // apabila pass sesuai maka login berhasil dan berikan message sukses
+    return res.status(200).json({
+        message: "login success",
+        userData,
+        token,
+    }) // apabila pass sesuai maka login berhasil dan berikan message sukses
 }
 
 module.exports = loginPost;
