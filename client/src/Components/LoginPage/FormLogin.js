@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
+//IMPORT ICONS
+import { FaInstagram, FaTwitter, FaTiktok, FaFacebook } from 'react-icons/fa'
 //IMPORT GLOBAL STYLING
 import '../../Assets/css/LoginForm.css';
 
@@ -79,6 +81,14 @@ function FormLogin() {
                     </div>
                     <button className='form-input-btn' type='submit'>Login</button>
                     <p className='form-input-login'>Dont have an account? Register <NavLink to='/register'>here</NavLink></p>
+                    <div className='row'>
+                        <ul className='profile-socials'>
+                            <li><a className='instagram2' href='https://www.instagram.com/'><FaInstagram /></a></li>
+                            <li><a className='twitter2' href='https://twitter.com/'><FaTwitter /></a></li>
+                            <li><a className='tiktok2' href='https://www.tiktok.com/'><FaTiktok /></a></li>
+                            <li><a className='facebook2' href='https://www.facebook.com/'><FaFacebook /></a></li>
+                        </ul>
+                    </div>
                 </form>
             </div>
         </>

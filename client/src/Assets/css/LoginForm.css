@@ -178,3 +178,35 @@ body {
     color: orange;
     opacity: 1;
 }
+
+.instagram2 {
+    color: #F12950;
+}
+
+.instagram2:hover {
+    color: #F12950;
+}
+
+.facebook2 {
+    color: #1877f2;
+}
+
+.facebook2:hover {
+    color: #1877f2;
+}
+
+.twitter2 {
+    color: #00acee;
+}
+
+.twitter2:hover {
+    color: #00acee;
+}
+
+.tiktok2 {
+    color: #000000
+}
+
+.tiktok2:hover {
+    color: #000000
+}
