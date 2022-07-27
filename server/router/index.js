@@ -18,11 +18,13 @@ const register = require('../controllers/register');
 const login = require('../controllers/login');
 const uploadPicture = require('../controllers/upload');
 const forgotPassword = require('../controllers/forgot');
+const userCont = require('../controllers/userController');
 
 router.get("/", home.index);
 router.post("/register", register);
 router.post('/login', login);
 router.post('/upload', upload.single('photo'), uploadPicture);
+router.get('/users', userCont.getAllplayer);
 
 //FORGOT PASSWORD
 router.put('/forgot-password', forgotPassword)
