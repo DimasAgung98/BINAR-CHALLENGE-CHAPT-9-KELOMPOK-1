@@ -24,7 +24,7 @@ function Profile() {
 
     // const [error, setError] = useState(null);
     // const [isLoaded, setIsLoaded] = useState(false);
-    // const [items, setItems] = useState([]);
+    // const [data, setData] = useState([]);
 
     // useEffect(() => {
     //     fetch("http://localhost:4000/users/:id")
@@ -32,7 +32,7 @@ function Profile() {
     //         .then(
     //             (result) => {
     //                 setIsLoaded(true);
-    //                 setItems(result);
+    //                 setData(result);
     //             },
     //             (error) => {
     //                 setIsLoaded(true);
@@ -84,9 +84,6 @@ function Profile() {
             closeModalPicture();
         }
     }
-    // if (error || !isLoaded) {
-    //     return <div>LOADING</div>;
-    // } else {
     return (
         <>
             <div className='container-fluid bg-light min-vh-100'>
@@ -117,9 +114,6 @@ function Profile() {
                                     <Button onClick={handleModal} color='danger' outline>Edit profile</Button>
                                 </div>
                             </div>
-                            {/* {
-                                items.data.map(
-                                    (item) => ( */}
                             <form>
                                 <div class="mb-3">
                                     <label class="form-label text-black">Name</label>
