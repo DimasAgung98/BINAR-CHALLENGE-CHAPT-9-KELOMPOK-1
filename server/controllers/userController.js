@@ -24,7 +24,7 @@ const getProfile = async (req, res) => {
     ]
     res.status(200).json({
         message: "profile-page",
-        profile,
+        data: profile,
     })
 }
 

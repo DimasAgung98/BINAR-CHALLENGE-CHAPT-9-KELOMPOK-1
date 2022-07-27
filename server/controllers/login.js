@@ -13,7 +13,6 @@ const login = async (req, res) => {
             where: { username: req.body.username }
         });
 
-
         try {
             const isPasswordMatch = await bcrypt.compare(req.body.password, data.password);
         } catch (error) {
@@ -28,6 +27,7 @@ const login = async (req, res) => {
 
         const token = jwt.sign(tokenPayload, jwtConfig.JWT_SECRET);
         const datapas = !data.password == req.body.password;
+
 
         return res.status(200).redirect('http://localhost:4000')
 
