@@ -184,7 +184,7 @@ body {
 }
 
 .instagram2:hover {
-    color: #F12950;
+    color: white
 }
 
 .facebook2 {
@@ -192,7 +192,7 @@ body {
 }
 
 .facebook2:hover {
-    color: #1877f2;
+    color: white
 }
 
 .twitter2 {
@@ -200,7 +200,7 @@ body {
 }
 
 .twitter2:hover {
-    color: #00acee;
+    color: white
 }
 
 .tiktok2 {
@@ -208,5 +208,5 @@ body {
 }
 
 .tiktok2:hover {
-    color: #000000
+    color: white
 }
