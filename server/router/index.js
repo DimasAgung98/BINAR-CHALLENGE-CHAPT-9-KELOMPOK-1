@@ -25,6 +25,7 @@ router.post("/register", register);
 router.post('/login', login);
 router.post('/upload', upload.single('photo'), uploadPicture);
 router.get('/users', userCont.getAllplayer);
+router.get('/users/:id', userCont.getProfile);
 
 //FORGOT PASSWORD
 router.put('/forgot-password', forgotPassword)

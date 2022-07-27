@@ -25,6 +25,7 @@ const register = async (req, res) => {
         } else {
             console.log('berhasil');
             const data = await user.create({
+                name: req.body.name,
                 username: req.body.username,
                 email: req.body.email,
                 password: encryptedPassword

@@ -11,17 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      user.hasMany(models.user_bio, { foreignKey:'id_foreign' });
-      user.hasMany(models.leaderboard, { foreignKey:'id_foreign' });
-      user.hasMany(models.game1, { foreignKey:'id_foreign' });
+      user.hasMany(models.user_bio, { foreignKey: 'id_foreign' });
+      user.hasMany(models.leaderboard, { foreignKey: 'id_foreign' });
+      user.hasMany(models.game1, { foreignKey: 'id_foreign' });
 
 
     }
   }
   user.init({
+    name: DataTypes.STRING,
     username: DataTypes.STRING,
     email: DataTypes.STRING,
-    password: DataTypes.STRING
+    password: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'user',

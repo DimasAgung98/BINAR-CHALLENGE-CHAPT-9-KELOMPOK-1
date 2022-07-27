@@ -8,17 +8,20 @@ import '../../Assets/css/RegisterForm.css';
 
 function FormRegister() {
     //USESTATE FOR USERNAME AND PASSWORD
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
     //HANDLE ON SUBMIT
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
             const result = await axios.post('http://localhost:4000/register', {
-                email: email,
+                name: name,
                 username: username,
+                email: email,
                 password: password
             });
             // alert(result.data.message);
@@ -55,6 +58,12 @@ function FormRegister() {
             <div className='form-content-right'>
                 <form action='/register' method='post' className='form' onSubmit={handleSubmit}>
                     <h1>Create your account by filling out the information below.</h1>
+                    <div className='form-inputs'>
+                        <label htmlFor='name' className='form-label'>
+                            Name
+                        </label>
+                        <input id='name' type="text" required name="name" className='form-input' placeholder='Enter your name' onChange={(e) => setName(e.target.value)} />
+                    </div>
                     <div className='form-inputs'>
                         <label htmlFor='email' className='form-label'>
                             Email
